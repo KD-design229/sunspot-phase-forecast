@@ -1,0 +1,186 @@
+{
+  "source": "SILSO V2.0 monthly 1990-2025 frozen snapshot",
+  "snapshot_SHA256": "353a97053bf8a046287b14185d86f63df1dae9c40b295f86b79db18eca607826",
+  "primary_original_test_results_preserved": true,
+  "train_target_start_for_window_comparison": "1995-01",
+  "folds": [
+    {
+      "name": "2011-2015",
+      "tr": "2005-12",
+      "va": "2010-12",
+      "te": "2015-12"
+    },
+    {
+      "name": "2016-2020",
+      "tr": "2010-12",
+      "va": "2015-12",
+      "te": "2020-12"
+    },
+    {
+      "name": "2021-2025",
+      "tr": "2015-12",
+      "va": "2020-12",
+      "te": "2025-12"
+    }
+  ],
+  "windows": [
+    12,
+    24,
+    36,
+    60
+  ],
+  "seeds": [
+    7,
+    42,
+    73
+  ],
+  "model": "PyTorch 1-layer LSTM 16 units, fc 12, Adam LR .004, wd .0003; early stop patience=32, max epochs=210; normalization training target only",
+  "ridge_search": [
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0,
+    1000.0
+  ],
+  "cross_phase_coverage": "2011-2015, 2016-2020, 2021-2025; multiple phases but not large number of complete independent solar cycles",
+  "protocol": "one-step, updates observed previous months; models retrained once per fold and held fixed over 5-year test",
+  "fold_selected": [
+    {
+      "test_period": "2011-2015",
+      "window": 24,
+      "model": "LSTM",
+      "train_n": 132,
+      "validation_n": 60,
+      "test_n": 60,
+      "chosen_seed": 7,
+      "epochs": 114,
+      "alpha": "",
+      "val_RMSE": 8.813315391540527,
+      "test_RMSE": 22.0368709564209,
+      "test_MAE": 16.7911376953125,
+      "test_Bias": 0.06492868810892105
+    },
+    {
+      "test_period": "2011-2015",
+      "window": 12,
+      "model": "Ridge",
+      "train_n": 132,
+      "validation_n": 60,
+      "test_n": 60,
+      "chosen_seed": "",
+      "epochs": "",
+      "alpha": 10.0,
+      "val_RMSE": 9.861554145812988,
+      "test_RMSE": 22.585336685180664,
+      "test_MAE": 16.851444244384766,
+      "test_Bias": -0.9033287763595581
+    },
+    {
+      "test_period": "2016-2020",
+      "window": 60,
+      "model": "LSTM",
+      "train_n": 192,
+      "validation_n": 60,
+      "test_n": 60,
+      "chosen_seed": 42,
+      "epochs": 125,
+      "alpha": "",
+      "val_RMSE": 21.00974464416504,
+      "test_RMSE": 8.56978988647461,
+      "test_MAE": 6.4762749671936035,
+      "test_Bias": 1.9819129705429077
+    },
+    {
+      "test_period": "2016-2020",
+      "window": 12,
+      "model": "Ridge",
+      "train_n": 192,
+      "validation_n": 60,
+      "test_n": 60,
+      "chosen_seed": "",
+      "epochs": "",
+      "alpha": 10.0,
+      "val_RMSE": 22.697229385375977,
+      "test_RMSE": 9.660538673400879,
+      "test_MAE": 7.074568271636963,
+      "test_Bias": 3.2775189876556396
+    },
+    {
+      "test_period": "2021-2025",
+      "window": 12,
+      "model": "LSTM",
+      "train_n": 252,
+      "validation_n": 60,
+      "test_n": 60,
+      "chosen_seed": 7,
+      "epochs": 42,
+      "alpha": "",
+      "val_RMSE": 8.634844779968262,
+      "test_RMSE": 23.114980697631836,
+      "test_MAE": 17.792882919311523,
+      "test_Bias": -5.616662979125977
+    },
+    {
+      "test_period": "2021-2025",
+      "window": 12,
+      "model": "Ridge",
+      "train_n": 252,
+      "validation_n": 60,
+      "test_n": 60,
+      "chosen_seed": "",
+      "epochs": "",
+      "alpha": 0.1,
+      "val_RMSE": 9.586665153503418,
+      "test_RMSE": 23.629426956176758,
+      "test_MAE": 19.100801467895508,
+      "test_Bias": -2.8755884170532227
+    }
+  ],
+  "pooled": [
+    {
+      "model": "LSTM",
+      "months": 180,
+      "RMSE": 19.090724260317252,
+      "MAE": 13.686765321758058,
+      "Bias": -1.1899404731061725
+    },
+    {
+      "model": "Ridge",
+      "months": 180,
+      "RMSE": 19.67886601768246,
+      "MAE": 14.342269956403308,
+      "Bias": -0.16713258888986376
+    }
+  ],
+  "bootstrap": [
+    {
+      "block_months": 6,
+      "replications": 20000,
+      "original_difference": -0.9472347912287091,
+      "CI_low": -2.0595805870922783,
+      "CI_median": -0.9298863841220228,
+      "CI_high": 0.15783239950608324,
+      "includes_zero": true
+    },
+    {
+      "block_months": 12,
+      "replications": 20000,
+      "original_difference": -0.9472347912287091,
+      "CI_low": -1.7381406921035656,
+      "CI_median": -0.9539257164043651,
+      "CI_high": 0.00855329881369649,
+      "includes_zero": true
+    },
+    {
+      "block_months": 18,
+      "replications": 20000,
+      "original_difference": -0.9472347912287091,
+      "CI_low": -1.6889627312216713,
+      "CI_median": -0.9381908193904298,
+      "CI_high": -0.08607530679827903,
+      "includes_zero": false
+    }
+  ],
+  "runtime_seconds": 32.65097188949585
+}
