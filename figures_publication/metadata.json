@@ -1,0 +1,31 @@
+{
+  "palette_id": "issue_01_008",
+  "colors": {
+    "observed": "#6F6F6F",
+    "blue": "#547BB4",
+    "lstm": "#C0321A",
+    "ridge": "#629C35",
+    "mlp": "#DD7C4F",
+    "gru": "#6C61AF",
+    "gray": "#6F6F6F"
+  },
+  "original_data_changed": false,
+  "model_predictions_changed": false,
+  "fig5_method": "pixelwise color substitution of recorded curves, no training re-execution",
+  "metrics": {
+    "test_LSTM_RMSE": 21.90660602391,
+    "test_Ridge_RMSE": 22.85384081513871
+  },
+  "figures": [
+    "fig10_yearly_rmse.png",
+    "fig1_SILSO_recent_observations.png",
+    "fig2_official_weighted_smoothing.png",
+    "fig3_2021_2025_predictions.png",
+    "fig4_test_RMSE.png",
+    "fig5_learning_curves.png",
+    "fig6_monthly_absolute_errors.png",
+    "fig7_rolling_fold_rmse.png",
+    "fig8_window_ablation.png",
+    "fig9_bootstrap_sensitivity.png"
+  ]
+}
